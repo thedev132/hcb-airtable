@@ -1,5 +1,3 @@
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import {
   Card,
@@ -32,15 +30,18 @@ import {
 } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import RunAutomationButton from "@/components/runAutomationButton";
+import { auth } from "@/auth";
 
 export default async function DashboardPage() {
-  const session = await getServerSession(authOptions);
+  const session = await auth();
+  console.log(session);
 
   if (!session) {
     redirect("/login");
   }
 
   const accessToken = await fetchAccessToken(session);
+  console.log(accessToken);
   const projects = await fetchProjects();
   const activeProjects = projects.filter((project) => project.active === true);
   const totalAutomations = projects.reduce(
@@ -73,19 +74,13 @@ export default async function DashboardPage() {
     {
       headers: {
         Authorization: `Bearer ${accessToken}`,
+        ContentType: "application/json",
       },
     },
   );
 
+  console.log(response);
   const data = await response.json();
-
-  // Get recent projects (last 5)
-  const recentProjects = [...projects]
-    .sort(
-      (a, b) =>
-        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
-    )
-    .slice(0, 5);
 
   return (
     <div className="flex flex-col h-full w-full overflow-auto">

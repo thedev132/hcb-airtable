@@ -1,9 +1,8 @@
-import { getServerSession } from "next-auth";
+import { auth } from "../../auth";
 import { prisma } from "../db";
-import { authOptions } from "../auth";
 
 export const deleteProject = async (projectId: string) => {
-  const session = await getServerSession(authOptions);
+  const session = await auth();
   const user = await prisma.user.findFirst({
     where: {
       email: session?.user?.email,

@@ -1,10 +1,9 @@
 "use server";
-import { getServerSession } from "next-auth";
+import { auth } from "../../auth";
 import { prisma } from "../db";
-import { authOptions } from "../auth";
 
 const createProject = async () => {
-  const session = await getServerSession(authOptions);
+  const session = await auth();
 
   const user = await prisma.user.findFirst({
     where: {

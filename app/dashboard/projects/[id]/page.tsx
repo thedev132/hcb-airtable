@@ -1,5 +1,3 @@
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import {
   Card,
@@ -37,13 +35,14 @@ import Link from "next/link";
 import { ProjectSettingsDialog } from "@/components/project-settings-dialog";
 import handleAutomationRun from "@/lib/automation";
 import RunAutomationButton from "@/components/runAutomationButton";
+import { auth } from "@/auth";
 
 export default async function ProjectDetailsPage({
   params,
 }: {
   params: { id: string };
 }) {
-  const session = await getServerSession(authOptions);
+  const session = await auth();
 
   if (!session) {
     redirect("/login");

@@ -1,6 +1,4 @@
-import { PrismaAdapter } from "@auth/prisma-adapter";
-import type { NextAuthOptions } from "next-auth";
-import { prisma } from "@/lib/db";
+import { NextAuthOptions } from "next-auth";
 
 declare module "next-auth" {
   interface Session {
@@ -8,13 +6,8 @@ declare module "next-auth" {
   }
 }
 
-export const authOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma),
-  session: {
-    strategy: "jwt",
-    maxAge: 30 * 24 * 60 * 60, // 30 days
-  },
-  secret: process.env.NEXTAUTH_SECRET,
+export default {
+  secret: process.env.AUTH_SECRET,
   pages: {
     signIn: "/login",
     error: "/login",
@@ -97,4 +90,4 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
   },
-};
+} as NextAuthOptions;

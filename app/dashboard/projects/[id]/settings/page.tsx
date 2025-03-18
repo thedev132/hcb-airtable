@@ -1,5 +1,3 @@
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
 import { redirect, notFound } from "next/navigation";
 import Link from "next/link";
 import { fetchProject } from "@/lib/project/fetch";
@@ -47,13 +45,14 @@ import { ChevronsUpDown } from "lucide-react";
 import { format } from "date-fns";
 import fetchAccessToken from "@/lib/fetchAccess";
 import { cn } from "@/lib/utils";
+import { auth } from "@/auth";
 
 export default async function ProjectSettingsPage({
   params,
 }: {
   params: { id: string };
 }) {
-  const session = await getServerSession(authOptions);
+  const session = await auth();
 
   if (!session) {
     redirect("/login");

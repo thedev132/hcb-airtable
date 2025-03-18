@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
-import { encode } from "next-auth/jwt";
+import { encode } from "@auth/core/jwt";
+import { auth } from "@/auth";
 
 export async function POST(req: Request) {
-  const { code } = await req.json();
+  const { code } = await req.json();  
 
   if (!code) {
     return NextResponse.json(
@@ -84,20 +85,22 @@ export async function POST(req: Request) {
     // Encode session as JWT
     const token = await encode({
       token: session,
-      secret: process.env.NEXTAUTH_SECRET!,
+      secret: process.env.AUTH_SECRET!,
+      salt: "__Secure-authjs.session-token",
     });
 
     // Set session cookie
     const cookieOptions = {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict" as const,
+      secure: true,
+      sameSite: "lax" as const,
       maxAge: 30 * 24 * 60 * 60, // 30 days
       path: "/",
     };
 
+    
     const response = NextResponse.json({ success: true });
-    response.cookies.set("next-auth.session-token", token, cookieOptions);
+    response.cookies.set("__Secure-authjs.session-token", token, cookieOptions);
 
     return response;
   } catch (error) {

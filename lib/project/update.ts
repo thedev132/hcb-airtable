@@ -1,13 +1,12 @@
-import { getServerSession } from "next-auth";
+import { auth } from "../../auth";
 import { prisma } from "../db";
-import { authOptions } from "../auth";
 import { Prisma } from "@prisma/client";
 
 export const updateProject = async (
   id: string,
   updates: Partial<Prisma.ProjectUpdateInput>,
 ) => {
-  const session = await getServerSession(authOptions);
+  const session = await auth();
   const user = await prisma.user.findFirst({
     where: {
       email: session?.user?.email,

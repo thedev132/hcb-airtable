@@ -1,7 +1,6 @@
 "use server";
-import { getServerSession } from "next-auth";
+import { auth } from "../../auth";
 import { prisma } from "../db";
-import { authOptions } from "../auth";
 
 export const createProject = async (
   name: string,
@@ -14,8 +13,8 @@ export const createProject = async (
   airtableTable: string,
   airtableView: string,
 ) => {
-  // const session = unstable_getServerSession
-  const session = await getServerSession(authOptions);
+
+  const session = await auth();
   const user = await prisma.user.findFirst({
     where: {
       email: session?.user?.email,

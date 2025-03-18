@@ -10,7 +10,7 @@
     "prettier": "prettier --write ."
   },
   "dependencies": {
-    "@auth/core": "0.34.2",
+    "@auth/core": "0.38.0",
     "@auth/prisma-adapter": "latest",
     "@hookform/resolvers": "^3.9.1",
     "@prisma/client": "latest",
@@ -54,7 +54,7 @@
     "input-otp": "1.4.1",
     "lucide-react": "^0.454.0",
     "next": "15.1.0",
-    "next-auth": "latest",
+    "next-auth": "^5.0.0-beta.25",
     "next-themes": "latest",
     "nodemailer": "latest",
     "prettier": "^3.5.3",

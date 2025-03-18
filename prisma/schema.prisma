@@ -8,21 +8,21 @@ datasource db {
 }
 
 model User {
-  id            String         @id @default(cuid())
+  id            String    @id @default(cuid())
   name          String?
-  email         String?        @unique
+  email         String?   @unique
   image         String?
-  refresh_token String?
   access_token  String?
-  airtable_pat  String?
   expires_at    String?
+  refresh_token String?
+  airtable_pat  String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @default(now()) @updatedAt
   projects      Project[]
-  createdAt     DateTime       @default(now())
-  updatedAt     DateTime       @updatedAt @default(now())
 }
 
 model Project {
-  id                   String         @id @default(cuid())
+  id                   String       @id @default(cuid())
   ownerId              String
   name                 String
   description          String?
@@ -30,27 +30,27 @@ model Project {
   airtable_approval_id String
   airtable_grant_id    String
   grantAmount          Int
+  organization         String
   airtable_table       String
   airtable_view        String
-  organization         String
+  active               Boolean      @default(true)
+  createdAt            DateTime     @default(now())
+  updatedAt            DateTime     @default(now()) @updatedAt
   automations          Automation[]
-  owner                User           @relation(fields: [ownerId], references: [id])
-  active               Boolean        @default(true)
-  createdAt            DateTime       @default(now())
-  updatedAt            DateTime       @updatedAt @default(now())
+  owner                User         @relation(fields: [ownerId], references: [id])
 }
 
 model Automation {
-  id            String    @id @default(cuid())
-  name          String    @default("Automation")
-  status        String
+  id            String   @id @default(cuid())
   recieverName  String
   recieverEmail String
   recieverId    String
   projectId     String
-  project       Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt @default(now())
+  name          String   @default("Automation")
+  type          String   @default("Scheduled")
+  createdAt     DateTime @default(now())
   errorMessage  String?
-  type          String    @default("Scheduled") // manual, scheduled, webhook
+  status        String
+  updatedAt     DateTime @default(now()) @updatedAt
+  project       Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
 }
