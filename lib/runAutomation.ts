@@ -61,7 +61,7 @@ const runAutomation = async (projectId: string) => {
               record.patchUpdate({
                 [project.airtable_grant_id]: true,
               });
-              prisma.automation.create({
+              await prisma.automation.create({
                 data: {
                   projectId: project.id,
                   recieverEmail: email ? email.toString() : "",
