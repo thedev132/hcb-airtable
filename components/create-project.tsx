@@ -153,7 +153,7 @@ export default function CreateProjectModal(data: {
             <p className="text-sm text-muted-foreground">
               Check our{" "}
               <a
-                href="https://docs.example.com/project-setup"
+                href="/docs/airtable-setup"
                 className="text-primary underline"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -275,7 +275,7 @@ export default function CreateProjectModal(data: {
               Connect your project to Airtable to manage grants and approvals.
               <Button variant="link" className="h-auto p-0 text-sm" asChild>
                 <a
-                  href="https://docs.example.com/airtable-setup"
+                  href="/docs/airtable-setup"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
