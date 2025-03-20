@@ -37,7 +37,7 @@ const runAutomation = async (projectId: string) => {
           records.forEach(async function (record) {
             const isApproved = record.get(project.airtable_approval_id);
             const isGrantSent = record.get(project.airtable_grant_id);
-            if ((isApproved || isApproved == "Approved") && !isGrantSent) {
+            if ((isApproved || isApproved == "Approved" || isApproved != "") && (!isGrantSent || isGrantSent != "Grant Given")) {
               console.log("Sending grant to " + record.get("First Name"));
               const email = record.get("Email");
               const response = await fetch(
