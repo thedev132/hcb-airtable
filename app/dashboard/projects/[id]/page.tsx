@@ -6,17 +6,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import {
   Activity,
   AlertCircle,
   CheckCircle2,
   Clock,
-
   XCircle,
-  Wrench
+  Wrench,
 } from "lucide-react";
 import {
   Table,
@@ -26,12 +24,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { fetchProject } from "@/lib/project/fetch";
 import { formatDistanceToNow } from "date-fns";
-import Link from "next/link";
 import { ProjectSettingsDialog } from "@/components/project-settings-dialog";
-import handleAutomationRun from "@/lib/automation";
 import RunAutomationButton from "@/components/runAutomationButton";
 import { auth } from "@/auth";
 import AutomationLogModal from "@/components/automation-log-modal";
@@ -202,12 +197,19 @@ export default async function ProjectDetailsPage({
                           </TableCell>
                           <TableCell className="max-w-[300px] truncate">
                             <div className="flex flex-row items-center gap-2">
-                            {automation.type ? <Clock size={20}/> : <Wrench size={20} />}
-                            {automation.type}
+                              {automation.type ? (
+                                <Clock size={20} />
+                              ) : (
+                                <Wrench size={20} />
+                              )}
+                              {automation.type}
                             </div>
                           </TableCell>
                           <TableCell className="text-right">
-                            <AutomationLogModal log={automation} project={project} />
+                            <AutomationLogModal
+                              log={automation}
+                              project={project}
+                            />
                           </TableCell>
                         </TableRow>
                       ))

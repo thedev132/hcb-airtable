@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Copy, Check, Info, AlertCircle } from "lucide-react";
+import { Copy, Check, Info, AlertCircle } from "lucide-react";
 
 export default function AirtableSetupClientPage() {
   return (
@@ -59,7 +59,7 @@ export default function AirtableSetupClientPage() {
             </h3>
             <p className="text-sm text-blue-700 dark:text-blue-400">
               Make sure you have an Airtable account and have created a base
-              with the necessary tables for your project. You'll need
+              with the necessary tables for your project. You&apos;ll need
               administrator access to view the API documentation.
             </p>
           </div>
@@ -122,7 +122,7 @@ export default function AirtableSetupClientPage() {
                     <li className="pl-2">
                       <p>
                         In the API documentation page, look for the{" "}
-                        <strong>Base ID</strong> in the "Introduction" section
+                        <strong>Base ID</strong> in the &quot;Introduction&quot; section
                       </p>
                       <div className="relative mt-2">
                         <img
@@ -145,7 +145,7 @@ export default function AirtableSetupClientPage() {
                     </li>
                     <li className="pl-2">
                       <p>
-                        Look at the URL in your browser's address bar. It will
+                        Look at the URL in your browser&apos;s address bar. It will
                         look something like:
                       </p>
                       <div className="bg-muted p-3 rounded-md font-mono text-sm mt-2 relative overflow-hidden">
@@ -184,7 +184,7 @@ export default function AirtableSetupClientPage() {
                     appABC123XYZ456DEF789
                   </p>
                   <p className="text-sm text-muted-foreground mt-2">
-                    Your Base ID will always start with "app" followed by a
+                    Your Base ID will always start with &quot;app&quot; followed by a
                     string of letters and numbers.
                   </p>
                 </div>
@@ -221,7 +221,7 @@ export default function AirtableSetupClientPage() {
                     </li>
                     <li className="pl-2">
                       <p>
-                        The name displayed for each table is what you'll use in
+                        The name displayed for each table is what you&apos;ll use in
                         your project configuration
                       </p>
                       <div className="bg-muted p-3 rounded-md mt-2">
@@ -229,9 +229,9 @@ export default function AirtableSetupClientPage() {
                         <p className="text-sm mt-1">
                           Table names are case-sensitive and should be entered
                           exactly as they appear in Airtable. For example, if
-                          your table is named "Grant Applications", you must
-                          enter it as "Grant Applications", not "grant
-                          applications".
+                          your table is named &quot;Grant Applications&quot;, you must
+                          enter it as &quot;Grant Applications&quot;, not &quot;grant
+                          applications&quot;.
                         </p>
                       </div>
                     </li>
@@ -257,15 +257,15 @@ export default function AirtableSetupClientPage() {
                     </li>
                     <li className="pl-2">
                       <p>
-                        The name displayed for each view is what you'll use in
+                        The name displayed for each view is what you&apos;ll use in
                         your project configuration
                       </p>
                       <div className="bg-muted p-3 rounded-md mt-2">
                         <p className="font-medium">Important Note:</p>
                         <p className="text-sm mt-1">
                           View names are also case-sensitive. If your view is
-                          named "Approved Grants", you must enter it exactly as
-                          "Approved Grants".
+                          named &quot;Approved Grants&quot;, you must enter it exactly as
+                          &quot;Approved Grants&quot;.
                         </p>
                       </div>
                     </li>
@@ -278,8 +278,8 @@ export default function AirtableSetupClientPage() {
                     Example Configuration
                   </h4>
                   <div className="mt-2 font-mono bg-background p-2 rounded border space-y-2">
-                    <p>Table Name: "Grant Applications"</p>
-                    <p>View Name: "Approved Grants"</p>
+                    <p>Table Name: &quot;Grant Applications&quot;</p>
+                    <p>View Name: &quot;Approved Grants&quot;</p>
                   </div>
                 </div>
               </CardContent>
@@ -337,8 +337,8 @@ export default function AirtableSetupClientPage() {
                     Example Field IDs
                   </h4>
                   <div className="mt-2 font-mono bg-background p-2 rounded border space-y-2">
-                    <p>Approval Field: "Approved"</p>
-                    <p>Grant Field ID: "Grant Sent"</p>
+                    <p>Approval Field: &quot;Approved&quot;</p>
+                    <p>Grant Field ID: &quot;Grant Sent&quot;</p>
                   </div>
                 </div>
               </CardContent>
@@ -375,8 +375,8 @@ export default function AirtableSetupClientPage() {
                     </li>
                     <li className="pl-2">
                       <p>
-                        Under the "Personal Access Tokens" section, click on
-                        "Generate API key" if you don't already have one
+                        Under the &quot;Personal Access Tokens&quot; section, click on
+                        &quot;Generate API key&quot; if you don&apos;t already have one
                       </p>
                       <img
                         src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/d97808eb11317b136722d66ee51dac0d5a79d115_screenshot_2025-03-14_at_5.59.13___pm.png"
@@ -410,7 +410,7 @@ export default function AirtableSetupClientPage() {
                     Adding Your API Key to the Project
                   </h3>
                   <p>
-                    In your project, you'll need to add the Personal Access
+                    In your project, you&apos;ll need to add the Personal Access
                     Token{" "}
                     <Link className="underline" href="/dashboard/settings">
                       here
@@ -439,7 +439,7 @@ export default function AirtableSetupClientPage() {
                   <div className="bg-muted p-4 rounded-lg space-y-3">
                     <div>
                       <h4 className="font-medium">
-                        Error: "Authentication required"
+                        Error: &quot;Authentication required&quot;
                       </h4>
                       <p className="text-sm mt-1">
                         This usually means your API key is invalid or not
@@ -449,7 +449,7 @@ export default function AirtableSetupClientPage() {
                         <li>Double-check that your API key is correct</li>
                         <li>Ensure the environment variable is properly set</li>
                         <li>
-                          Verify that your API key has access to the base you're
+                          Verify that your API key has access to the base you&apos;re
                           trying to access
                         </li>
                       </ul>
@@ -464,11 +464,11 @@ export default function AirtableSetupClientPage() {
                   <div className="bg-muted p-4 rounded-lg space-y-3">
                     <div>
                       <h4 className="font-medium">
-                        Error: "Could not find base with id appXXXXXXXXXXXXXX"
+                        Error: &quot;Could not find base with id appXXXXXXXXXXXXXX&quot;
                       </h4>
                       <p className="text-sm mt-1">
                         This means the Base ID you provided is incorrect or your
-                        account doesn't have access to this base.
+                        account doesn&apos;t have access to this base.
                       </p>
                       <ul className="list-disc list-inside ml-4 mt-2 text-sm space-y-1">
                         <li>Verify the Base ID is correct</li>
@@ -476,16 +476,16 @@ export default function AirtableSetupClientPage() {
                       </ul>
                     </div>
                     <div className="pt-2">
-                      <h4 className="font-medium">Error: "Table not found"</h4>
+                      <h4 className="font-medium">Error: &quot;Table not found&quot;</h4>
                       <p className="text-sm mt-1">
-                        This means the table name you provided doesn't exist in
+                        This means the table name you provided doesn&apos;t exist in
                         the specified base.
                       </p>
                       <ul className="list-disc list-inside ml-4 mt-2 text-sm space-y-1">
                         <li>Check for typos in the table name</li>
                         <li>Remember that table names are case-sensitive</li>
                         <li>
-                          Verify the table exists in the base you're accessing
+                          Verify the table exists in the base you&apos;re accessing
                         </li>
                       </ul>
                     </div>
@@ -496,19 +496,19 @@ export default function AirtableSetupClientPage() {
                   <h3 className="text-lg font-medium">Field ID Issues</h3>
                   <div className="bg-muted p-4 rounded-lg space-y-3">
                     <div>
-                      <h4 className="font-medium">Error: "Field not found"</h4>
+                      <h4 className="font-medium">Error: &quot;Field not found&quot;</h4>
                       <p className="text-sm mt-1">
-                        This means one of the Field IDs you provided doesn't
+                        This means one of the Field IDs you provided doesn&apos;t
                         exist in the specified table.
                       </p>
                       <ul className="list-disc list-inside ml-4 mt-2 text-sm space-y-1">
                         <li>Verify the Field IDs in the API documentation</li>
                         <li>
-                          Make sure you're using the Field ID (starts with
-                          "fld"), not the field name
+                          Make sure you&apos;re using the Field ID (starts with
+                            &quot;fld&quot;), not the field name
                         </li>
                         <li>
-                          Check if the field exists in the table you're
+                          Check if the field exists in the table you&apos;re
                           accessing
                         </li>
                       </ul>
@@ -519,7 +519,7 @@ export default function AirtableSetupClientPage() {
                 <div className="bg-muted p-4 rounded-lg">
                   <h4 className="font-medium">Still Having Issues?</h4>
                   <p className="text-sm mt-2">
-                    If you're still experiencing problems after trying these
+                    If you&apos;re still experiencing problems after trying these
                     solutions, you can:
                   </p>
                   <ul className="list-disc list-inside ml-4 mt-2 text-sm space-y-2">

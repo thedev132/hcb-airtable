@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { encode } from "@auth/core/jwt";
-import { auth } from "@/auth";
 
 export async function POST(req: Request) {
   const { code } = await req.json();

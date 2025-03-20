@@ -192,7 +192,7 @@ export default function DocsHomePage() {
         <div className="mt-6 p-6 bg-muted rounded-lg">
           <h2 className="text-2xl font-bold mb-4">Need Help?</h2>
           <p className="mb-4">
-            If you can't find what you're looking for in the documentation, our
+            If you can&apos;t find what you&apos;re looking for in the documentation, our
             support team is here to help.
           </p>
           <div className="flex flex-wrap gap-4">

@@ -15,18 +15,14 @@ import fetchAccessToken from "@/lib/fetchAccess";
 import { fetchProjects } from "@/lib/project/fetch";
 import Link from "next/link";
 import {
-  PlusCircle,
   BarChart3,
-  Clock,
   Activity,
-  ArrowUpRight,
   Filter,
   FolderKanban,
   ArrowRight,
   CheckCircle,
   XCircle,
   Calendar,
-  Users,
 } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import RunAutomationButton from "@/components/runAutomationButton";
@@ -420,7 +416,7 @@ function ProjectCard({ project }: { project: any }) {
                         (word) => word.charAt(0).toUpperCase() + word.slice(1),
                       )
                       .join(" ")}
-                    's HCB
+                    &apos;s HCB
                   </div>
                 </div>
               </div>

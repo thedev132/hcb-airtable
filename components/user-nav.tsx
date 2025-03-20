@@ -19,8 +19,8 @@ interface UserNavProps {
 }
 
 export function UserNav({ user }: UserNavProps) {
-  if (!user) return null;
   const router = useRouter();
+  if (!user) return null;
 
   const initials = user.name
     ? user.name

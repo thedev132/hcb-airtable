@@ -20,12 +20,12 @@ const runAutomation = async (projectId: string) => {
       automations: true,
     },
   });
-  
+
   console.log(project);
   console.log(user);
 
   if (user?.airtable_pat) {
-    let base = new Airtable({ apiKey: user.airtable_pat }).base(
+    const base = new Airtable({ apiKey: user.airtable_pat }).base(
       project.airtable_base_id,
     );
     base(project.airtable_table)
@@ -51,14 +51,13 @@ const runAutomation = async (projectId: string) => {
                   body: JSON.stringify({
                     email: email,
                     amount_cents: project?.grantAmount,
-                    merchant_lock: project?.merchant_locks,
-                    category_lock: project?.category_locks,
+                    merchant_lock: project?.merchant_locks.join(","),
+                    category_lock: project?.category_locks.join(","),
                     keyword_lock: project?.keyword_lock,
                     purpose: project?.grant_purpose,
                   }),
                 },
               );
-              let data = await response.json();
               record.patchUpdate({
                 [project.airtable_grant_id]: true,
               });

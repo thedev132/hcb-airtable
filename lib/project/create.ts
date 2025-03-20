@@ -16,7 +16,6 @@ export const createProject = async (
   categoryLocks: string[],
   keywordLock: string,
   grantPurpose: string,
-  
 ) => {
   const session = await auth();
   const user = await prisma.user.findFirst({

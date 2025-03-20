@@ -11,9 +11,13 @@ const handleRunAutomation = async (projectId: string, toast) => {
   });
 
   if (response.ok) {
-    toast({title: "Success!", description: "Automation ran successfully!"});
+    toast({ title: "Success!", description: "Automation ran successfully!" });
   } else {
-    toast({variant:"destructive", title: "Error!", description: "Failed to run automation!"});
+    toast({
+      variant: "destructive",
+      title: "Error!",
+      description: "Failed to run automation!",
+    });
   }
 };
 export default handleRunAutomation;

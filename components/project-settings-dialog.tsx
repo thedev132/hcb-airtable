@@ -49,7 +49,6 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Separator } from "@/components/ui/separator";
 import fetchAccessToken from "@/lib/fetchAccess";
-import { updateProject } from "@/lib/project/update";
 
 export function ProjectSettingsDialog({
   project,
@@ -460,7 +459,7 @@ export function ProjectSettingsDialog({
             <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
             <AlertDialogDescription>
               This action cannot be undone. This will permanently delete the
-              project "{project.name}" and all associated data including
+              project &quot;{project.name}&quot; and all associated data including
               automations, logs, and settings.
             </AlertDialogDescription>
           </AlertDialogHeader>

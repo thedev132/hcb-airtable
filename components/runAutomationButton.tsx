@@ -13,7 +13,7 @@ export default function RunAutomationButton({
   projectId: string;
   type?: string;
 }) {
-  const { toast } = useToast()
+  const { toast } = useToast();
   return (
     <>
       {type === "home" ? (

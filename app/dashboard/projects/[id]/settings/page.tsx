@@ -292,7 +292,7 @@ export default async function ProjectSettingsPage({
                       placeholder="https://example.com/webhook"
                     />
                     <p className="text-sm text-muted-foreground">
-                      We'll send a POST request to this URL when events occur
+                      We&apos;ll send a POST request to this URL when events occur
                     </p>
                   </div>
                   <div className="flex items-center space-x-2 mt-4">

@@ -12,7 +12,6 @@ export async function POST(req: Request) {
   }
 
   try {
-    
     const { projectId } = await req.json();
     await runAutomation(projectId);
 
