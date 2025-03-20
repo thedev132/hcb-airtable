@@ -51,6 +51,7 @@ import {
 } from "@/components/ui/alert-dialog"
 import { toast } from "@/components/ui/use-toast"
 import { Textarea } from "./ui/textarea"
+import Link from "next/link"
 
 interface AutomationLogModalClientProps {
   log: any
@@ -321,7 +322,9 @@ export default function AutomationLogModalClient({
                   </CardTitle>
                   <div className="flex flex-row gap-4">
                     <Badge variant="outline" className="font-mono text-xs">
+                      <Link href={`https://hcb.hackclub.com/grants/${cardDetails.grantId.replace("cdg_", "")}`} target="_blank">
                       {cardDetails.grantId}
+                      </Link>
                     </Badge>
                   </div>
                 </div>
