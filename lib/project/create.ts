@@ -12,8 +12,12 @@ export const createProject = async (
   airtableGrant: string,
   airtableTable: string,
   airtableView: string,
+  merchantLocks: string[],
+  categoryLocks: string[],
+  keywordLock: string,
+  grantPurpose: string,
+  
 ) => {
-
   const session = await auth();
   const user = await prisma.user.findFirst({
     where: {
@@ -32,6 +36,10 @@ export const createProject = async (
       airtable_view: airtableView,
       ownerId: user?.id ?? "",
       organization,
+      merchant_locks: merchantLocks,
+      category_locks: categoryLocks,
+      keyword_lock: keywordLock,
+      grant_purpose: grantPurpose,
     },
   });
 

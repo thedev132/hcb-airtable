@@ -223,6 +223,7 @@ export function Chart() {
                 return date.toLocaleDateString("en-US", {
                   month: "short",
                   day: "numeric",
+                  timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
                 });
               }}
             />
@@ -234,6 +235,8 @@ export function Chart() {
                     return new Date(value).toLocaleDateString("en-US", {
                       month: "short",
                       day: "numeric",
+                      timeZone:
+                        Intl.DateTimeFormat().resolvedOptions().timeZone,
                     });
                   }}
                   indicator="dot"

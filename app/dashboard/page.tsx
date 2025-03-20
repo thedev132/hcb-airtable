@@ -358,11 +358,15 @@ function ProjectCard({ project }: { project: any }) {
                         month: "2-digit",
                         day: "2-digit",
                         year: "2-digit",
+                        timeZone:
+                          Intl.DateTimeFormat().resolvedOptions().timeZone,
                       })}{" "}
                       at{" "}
                       {automation.createdAt.toLocaleTimeString([], {
                         hour: "2-digit",
                         minute: "2-digit",
+                        timeZone:
+                          Intl.DateTimeFormat().resolvedOptions().timeZone,
                       })}
                     </span>
                   </div>
@@ -388,10 +392,16 @@ function ProjectCard({ project }: { project: any }) {
                 <div>
                   <div className="text-sm font-medium">Created</div>
                   <div className="text-xs text-muted-foreground">
-                    {new Date(project.createdAt).toLocaleDateString()} at{" "}
+                    {new Date(project.createdAt).toLocaleDateString([], {
+                      timeZone:
+                        Intl.DateTimeFormat().resolvedOptions().timeZone,
+                    })}{" "}
+                    at{" "}
                     {new Date(project.createdAt).toLocaleTimeString([], {
                       hour: "2-digit",
                       minute: "2-digit",
+                      timeZone:
+                        Intl.DateTimeFormat().resolvedOptions().timeZone,
                     })}
                   </div>
                 </div>

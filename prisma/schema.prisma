@@ -29,6 +29,10 @@ model Project {
   airtable_base_id     String
   airtable_approval_id String
   airtable_grant_id    String
+  merchant_locks       String[] @default([])
+  category_locks       String[] @default([])
+  keyword_lock         String?
+  grant_purpose        String?
   grantAmount          Int
   organization         String
   airtable_table       String
@@ -46,6 +50,7 @@ model Automation {
   recieverEmail String
   recieverId    String
   projectId     String
+  grantId       String?
   name          String   @default("Automation")
   type          String   @default("Scheduled")
   createdAt     DateTime @default(now())

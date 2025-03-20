@@ -1,23 +1,19 @@
-"use client"
-import { useToast } from "@/hooks/use-toast"
+"use client";
 
-const handleRunAutomation = async (projectId) => {
-    const toast = useToast();
-
-const response = await fetch("/api/automation/run", {
+const handleRunAutomation = async (projectId: string, toast) => {
+  console.log("Running automation for project", projectId);
+  const response = await fetch("/api/automation/run", {
     method: "POST",
     headers: {
-    "Content-Type": "application/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({ projectId: projectId }),
-});
+  });
 
-if (response.ok) {
-    alert("Automation run successfully!");
-} else {
-    alert("Failed to run automation");
-}
-
-}    
+  if (response.ok) {
+    toast({title: "Success!", description: "Automation ran successfully!"});
+  } else {
+    toast({variant:"destructive", title: "Error!", description: "Failed to run automation!"});
+  }
+};
 export default handleRunAutomation;
-

@@ -12,13 +12,11 @@ import { Button } from "@/components/ui/button";
 import {
   Activity,
   AlertCircle,
-  ArrowUpRight,
   CheckCircle2,
   Clock,
-  Code2,
-  FileText,
-  Settings,
+
   XCircle,
+  Wrench
 } from "lucide-react";
 import {
   Table,
@@ -36,6 +34,7 @@ import { ProjectSettingsDialog } from "@/components/project-settings-dialog";
 import handleAutomationRun from "@/lib/automation";
 import RunAutomationButton from "@/components/runAutomationButton";
 import { auth } from "@/auth";
+import AutomationLogModal from "@/components/automation-log-modal";
 
 export default async function ProjectDetailsPage({
   params,
@@ -47,7 +46,6 @@ export default async function ProjectDetailsPage({
   if (!session) {
     redirect("/login");
   }
-
 
   // In a real app, you would fetch this data from your database
   const project = await fetchProject(params.id);
@@ -76,6 +74,7 @@ export default async function ProjectDetailsPage({
       day: "numeric",
       hour: "2-digit",
       minute: "2-digit",
+      timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     }).format(date);
   };
 
@@ -173,7 +172,7 @@ export default async function ProjectDetailsPage({
                       <TableHead>Status</TableHead>
                       <TableHead>Name</TableHead>
                       <TableHead>Time</TableHead>
-                      <TableHead className="w-[300px]">Message</TableHead>
+                      <TableHead>Type</TableHead>
                       <TableHead className="text-right">Actions</TableHead>
                     </TableRow>
                   </TableHeader>
@@ -193,16 +192,22 @@ export default async function ProjectDetailsPage({
                             {automation.name}
                           </TableCell>
                           <TableCell>
-                            {formatDate(automation.createdAt.toDateString())}
+                            {formatDate(
+                              automation.createdAt.toLocaleDateString([], {
+                                timeZone:
+                                  Intl.DateTimeFormat().resolvedOptions()
+                                    .timeZone,
+                              }),
+                            )}
                           </TableCell>
                           <TableCell className="max-w-[300px] truncate">
-                            {automation.name}
+                            <div className="flex flex-row items-center gap-2">
+                            {automation.type ? <Clock size={20}/> : <Wrench size={20} />}
+                            {automation.type}
+                            </div>
                           </TableCell>
                           <TableCell className="text-right">
-                            <Button variant="ghost" size="sm">
-                              <FileText className="h-4 w-4 mr-1" />
-                              View
-                            </Button>
+                            <AutomationLogModal log={automation} project={project} />
                           </TableCell>
                         </TableRow>
                       ))

@@ -45,5 +45,5 @@ export default function RootLayout({
   );
 }
 
-import "./globals.css";import { Toaster } from "@/components/ui/toaster";
-
+import "./globals.css";
+import { Toaster } from "@/components/ui/toaster";

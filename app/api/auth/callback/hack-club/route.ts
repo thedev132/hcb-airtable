@@ -4,7 +4,7 @@ import { encode } from "@auth/core/jwt";
 import { auth } from "@/auth";
 
 export async function POST(req: Request) {
-  const { code } = await req.json();  
+  const { code } = await req.json();
 
   if (!code) {
     return NextResponse.json(
@@ -98,7 +98,6 @@ export async function POST(req: Request) {
       path: "/",
     };
 
-    
     const response = NextResponse.json({ success: true });
     response.cookies.set("__Secure-authjs.session-token", token, cookieOptions);
 
