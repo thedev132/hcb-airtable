@@ -58,7 +58,7 @@ const runAutomation = async (projectId: string) => {
                   }),
                 },
               );
-              record.patchUpdate({
+              await record.patchUpdate({
                 [project.airtable_grant_id]: true,
               });
               await prisma.automation.create({
