@@ -32,6 +32,7 @@ export default async function AutomationLogModal({
     },
   );
   const grantCardData = await grantCard.json();
+  console.log(log.grantId);
   console.log(grantCardData);
 
   return (
