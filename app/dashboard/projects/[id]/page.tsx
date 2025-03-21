@@ -42,7 +42,6 @@ export default async function ProjectDetailsPage({
     redirect("/login");
   }
 
-  // In a real app, you would fetch this data from your database
   const project = await fetchProject(params.id);
   const successRate = Math.floor(
     (project.automations.filter((a) => a.status === "Success").length /

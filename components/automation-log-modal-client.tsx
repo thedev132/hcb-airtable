@@ -132,7 +132,7 @@ export default function AutomationLogModalClient({
   const getStatusVariant = (status: string) => {
     switch (status.toLowerCase()) {
       case "failed":
-      case "cancelled":
+      case "canceled":
         return "destructive";
       case "warning":
         return "warning";
@@ -729,7 +729,7 @@ export default function AutomationLogModalClient({
             <Button variant="outline" onClick={() => setOpen(false)}>
               Close
             </Button>
-            {cardDetails.status.toLowerCase() !== "cancelled" && (
+            {cardDetails.status.toLowerCase() !== "canceled" && (
               <Button
                 variant="destructive"
                 onClick={() => setCancelDialogOpen(true)}

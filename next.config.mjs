@@ -2,7 +2,7 @@ let userConfig = undefined;
 try {
   userConfig = await import("./v0-user-next.config");
 } catch (e) {
-  console.error("User next.config.js not found", e);
+  console.error("User next.config.js not found");
 }
 
 /** @type {import('next').NextConfig} */

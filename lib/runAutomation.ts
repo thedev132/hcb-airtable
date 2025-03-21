@@ -66,7 +66,7 @@ const runAutomation = async (projectId: string) => {
                   projectId: project.id,
                   recieverEmail: email ? email.toString() : "",
                   recieverName:
-                    record.get("First Name") + " " + record.get("Last Name"),
+                  record.get("First Name") + " " + record.get("Last Name"),
                   recieverId: record.id,
                   name: `Grant to ${record.get("First Name") + " " + record.get("Last Name")}`,
                   status: response.ok ? "Success" : "Failed",
